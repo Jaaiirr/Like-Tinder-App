@@ -6,8 +6,7 @@ import Form from './Form';
 const Register = () => {
     return (
         <div>
-            <h2>Registro de Usuario</h2>
-            <p>Bienvenido!</p>
+            <h2 className='text-center'>Registro de Usuario</h2>
             <Form/>
 
             <Link to ="/">

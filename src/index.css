@@ -23,7 +23,7 @@ code {
 /* Formulario */
 .formulario {
 	/* min-width: 350px; */
-	margin-top: 20px;
+	margin-top: 10px;
 	background: #fff;
 	border-radius: 5px;
 	padding: 20px;
@@ -95,4 +95,9 @@ code {
 
 .formulario input[type="radio"] {
 	width: auto;
+}
+.column{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
