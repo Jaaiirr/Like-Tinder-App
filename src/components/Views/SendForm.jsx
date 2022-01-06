@@ -1,9 +1,18 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
+import { Link } from "react-router-dom";
 import axios from 'axios'
 
 const SendForm = () => {
     const [SaveForm, setSaveForm] = useState(false);
+
+   
+    
+    const handleClick = () => {
+        setTimeout(() => {
+            window.location.href = "http://localhost:3000/"
+         }, 5000);
+    }
     return (
         <>
         <Formik 
@@ -50,7 +59,7 @@ const SendForm = () => {
 
             //Cambiar el estado del envio del formulario
             setSaveForm(true);
-            setTimeout(()=> setSaveForm(false),5000)
+            setTimeout(()=> setSaveForm(false),3000)
 
             //Aqui va la peticion a la API metodo POST 
             axios({
@@ -58,6 +67,9 @@ const SendForm = () => {
                 url: 'https://flink-web-test.herokuapp.com/api/v1/register',
                 data: data,
             }).then(res => console.log(res.data))
+
+            //Re-dirigiendo a la vista home
+               
         }}>
             {({errors}) => (
                 <Form className='formulario'>
@@ -124,19 +136,19 @@ const SendForm = () => {
                     <div className='column'>
                     <p>Genero</p>
                     <Field name="gender" as ="select">
-                        <option value="H">H</option>
-                        <option value="M">M</option>
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
                         <option value="NB">NB</option>
                     </Field>
                         <p>Preferencia</p>
                         <Field name="preferredGender" as="select">
-                            <option value="H">H</option>
-                            <option value="M">M</option>
+                            <option value="H">Hombre</option>
+                            <option value="M">Mujer</option>
                             <option value="H/M">H/M</option>
                         </Field>
                     </div>
                     <div>
-                        <button type="submit">Send</button>
+                        <button type="submit" onClick={handleClick}>Send</button>
                         {SaveForm && <p className='exito'>Usuario registrado con exito</p>}
                         
                     </div> 
