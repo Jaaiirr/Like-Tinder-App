@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
+import axios from 'axios'
 
 const SendForm = () => {
     const [SaveForm, setSaveForm] = useState(false);
@@ -7,13 +8,15 @@ const SendForm = () => {
         <>
         <Formik 
         initialValues={{
+            email:"",
             name: "",
             lastName: "",
-            email:"",
             password:"",
-            age:" ",
+            preferredGender:"",
             gender:"",
-            preferredGender:""
+            age:" "
+           
+            
         }}
         validate={(data)=> {
             let error = {};
@@ -50,7 +53,12 @@ const SendForm = () => {
             setTimeout(()=> setSaveForm(false),3000)
 
             //Aqui va la peticion a la API metodo POST 
-            console.log("Formulario Enviado")
+            axios.post(`https://flink-web-test.herokuapp.com/api/v1/register`, {data})
+            .then(res=> {
+                console.log(res);
+                console.log(res.data)
+            })
+            // console.log("Formulario Enviado")
         }}>
             {({errors}) => (
                 <Form className='formulario'>
