@@ -50,15 +50,14 @@ const SendForm = () => {
 
             //Cambiar el estado del envio del formulario
             setSaveForm(true);
-            setTimeout(()=> setSaveForm(false),3000)
+            setTimeout(()=> setSaveForm(false),5000)
 
             //Aqui va la peticion a la API metodo POST 
-            axios.post(`https://flink-web-test.herokuapp.com/api/v1/register`, {data})
-            .then(res=> {
-                console.log(res);
-                console.log(res.data)
-            })
-            // console.log("Formulario Enviado")
+            axios({
+                method: 'POST',
+                url: 'https://flink-web-test.herokuapp.com/api/v1/register',
+                data: data,
+            }).then(res => console.log(res.data))
         }}>
             {({errors}) => (
                 <Form className='formulario'>
@@ -125,19 +124,21 @@ const SendForm = () => {
                     <div className='column'>
                     <p>Genero</p>
                     <Field name="gender" as ="select">
-                        <option value="hombre">Hombre</option>
-                        <option value="mujer">Mujer</option>
+                        <option value="H">H</option>
+                        <option value="M">M</option>
+                        <option value="NB">NB</option>
                     </Field>
                         <p>Preferencia</p>
                         <Field name="preferredGender" as="select">
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
-                            <option value="Ambos">Ambos</option>
+                            <option value="H">H</option>
+                            <option value="M">M</option>
+                            <option value="H/M">H/M</option>
                         </Field>
                     </div>
                     <div>
                         <button type="submit">Send</button>
                         {SaveForm && <p className='exito'>Usuario registrado con exito</p>}
+                        
                     </div> 
                 </Form>  
             )}
