@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import Form from './Form';
+import SendForm from './SendForm';
 
 
 const Register = () => {
     return (
         <div>
             <h2 className='text-center'>Registro de Usuario</h2>
-            <Form/>
+            {/* <Form/> */}
+            <SendForm/> 
 
             <Link to ="/">
                     <button className='center-buttons'>go Home</button>
