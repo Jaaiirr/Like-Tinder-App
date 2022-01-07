@@ -5,11 +5,11 @@ import axios from 'axios'
 
 
 const Login = () => {
-    // const handleClick = () => {
-    //     setTimeout(() => {
-    //         window.location.href = "http://localhost:3000/card"
-    //      }, 2000);
-    // }
+    //   const handleClick = () => {
+    //       setTimeout(() => {
+    //           window.location.href = "http://localhost:3000/card"
+    //        }, 2000);
+    //   }
     return (
         <>
         
@@ -40,7 +40,7 @@ const Login = () => {
                     method: 'POST',
                     url: 'https://flink-web-test.herokuapp.com/api/v1/login',
                     data: data,
-                }).then(res => console.log(res.data))
+                }).then(res => console.log(res.data.isLoggedIn))
             }}>
                 {({errors})=> (
                     <Form className='formulario'>

@@ -4,9 +4,7 @@ import Home from './components/Home/Home'
 import Login from './components/Views/Login';
 import Register from './components/Views/Register';
 import NotFound404 from './components/Views/NotFound404';
-// import Form from './components/Views/Form';
 import Card from './components/Card';
-
 
 const App = () => {
   return (
