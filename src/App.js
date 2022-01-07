@@ -5,7 +5,7 @@ import Login from './components/Views/Login';
 import Register from './components/Views/Register';
 import NotFound404 from './components/Views/NotFound404';
 // import Form from './components/Views/Form';
-// import Card from './components/Card';
+import Card from './components/Card';
 
 
 const App = () => {
@@ -15,14 +15,14 @@ const App = () => {
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route exact path="/liked">
-            {/* <Liked /> */}
-        </Route>
         <Route exact path="/login">
             <Login/>
         </Route>
         <Route exact path="/register">
             <Register/>
+        </Route>
+        <Route exact path="/card">
+            <Card/>
         </Route>
         <Route path="*">
             <NotFound404/>

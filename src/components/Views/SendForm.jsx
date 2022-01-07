@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
-import { Link } from "react-router-dom";
 import axios from 'axios'
 
 const SendForm = () => {
@@ -68,7 +67,6 @@ const SendForm = () => {
                 data: data,
             }).then(res => console.log(res.data))
 
-            //Re-dirigiendo a la vista home
                
         }}>
             {({errors}) => (
@@ -113,7 +111,7 @@ const SendForm = () => {
                             <div className='error'>{errors.email}</div>
                         )}/>
                     </div>
-                    <div className=''>
+                    <div>
                         <label htmlFor="password">Contraseña</label>
                         <Field 
                             type="password" 
