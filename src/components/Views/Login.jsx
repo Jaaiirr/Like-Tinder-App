@@ -3,17 +3,20 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import axios from 'axios'
 
 
-
 const Login = () => {
-    //   const handleClick = () => {
-    //       setTimeout(() => {
-    //           window.location.href = "http://localhost:3000/card"
-    //        }, 2000);
-    //   }
+          const handleClick = () => {
+              setTimeout(() => {
+                  window.location.href = "http://localhost:3000/logout"
+               }, 2000);
+            
+          }
     return (
         <>
         
             <h2 className='text-center'>Bienvenido</h2>
+            {/* Opcion de Login con Auth0 */}
+            {/* <LoginButton /> */}
+            {/* Opcion de registro con Formik */}
             <Formik
             initialValues={{
                 email: "",
@@ -40,7 +43,12 @@ const Login = () => {
                     method: 'POST',
                     url: 'https://flink-web-test.herokuapp.com/api/v1/login',
                     data: data,
-                }).then(res => console.log(res.data.isLoggedIn))
+                }).then(res => {
+                    console.log(res.data)
+                    // Dispatch aqui
+                    // dispatch(setUser(data));
+
+                })
             }}>
                 {({errors})=> (
                     <Form className='formulario'>
@@ -68,7 +76,7 @@ const Login = () => {
                                 />
                         </div>
                         <div>
-                        <button type="submit">Start</button>
+                        <button type="submit" onClick={handleClick}>Start</button>
                         {/* {SaveForm && <p className='exito'>Usuario registrado con exito</p>} */}
                         
                     </div>

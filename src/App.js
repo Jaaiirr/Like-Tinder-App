@@ -5,28 +5,39 @@ import Login from './components/Views/Login';
 import Register from './components/Views/Register';
 import NotFound404 from './components/Views/NotFound404';
 import Card from './components/Card';
+import Logout from './components/Views/Logout';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home/>
-        </Route>
-        <Route exact path="/login">
-            <Login/>
-        </Route>
-        <Route exact path="/register">
-            <Register/>
-        </Route>
-        <Route exact path="/card">
-            <Card/>
-        </Route>
-        <Route path="*">
-            <NotFound404/>
-        </Route>
-      </Switch> 
-    </Router>
+    <>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route exact path="/login">
+              <Login/>
+          </Route>
+          <Route exact path="/logout">
+              <Logout/>
+          </Route>
+          <Route exact path="/register">
+              <Register/>
+          </Route>
+          <Route exact path="/card">
+              <Card/>
+          </Route>
+          <Route path="*">
+              <NotFound404/>
+          </Route>
+        </Switch> 
+      </Router>
+      </Provider>
+    </>
   );
 }
 
